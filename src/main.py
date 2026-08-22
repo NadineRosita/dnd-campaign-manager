@@ -22,16 +22,23 @@ def create_character(manager: CharacterManager) -> None:
     """Create a new character from user input."""
     print("\n--- Create Character ---")
     
-    name = input("Name: ")
-    race = input("Race: ")
-    character_class = input("Character class: ")
-    level = get_integer_input("Level: ")
-    hit_points = get_integer_input("Hit points: ")
+    while True:
+        try:
+            name = input("Name: ")
+            race = input("Race: ")
+            character_class = input("Character class: ")
+            level = get_integer_input("Level: ")
+            hit_points = get_integer_input("Hit points: ")
     
-    character = Character(name, race, character_class, level, hit_points)
+            character = Character(name, race, character_class, level, hit_points)
     
-    manager.add_character(character)
-    print(f"\nCharacter '{name} created successfully!")
+            manager.add_character(character)
+            print(f"\nCharacter '{name} created successfully!")
+            break
+        
+        except (ValueError, TypeError) as error:
+            print(f"\nInvalid character data: {error}")
+            print("Please try again.\n")
 
 def get_integer_input(prompt: str) -> int:
     """Ask the user for an integer until a valid value is provided."""
