@@ -1,6 +1,7 @@
 """Main entry point for the D&D Campaign Manager."""
 from character import *
 from character_manager import *
+from pathlib import Path
 ## from character import Character
 ## from character_manager import CharacterManager
 
@@ -34,6 +35,7 @@ def create_character(manager: CharacterManager) -> None:
             character = Character(name, race, character_class, level, hit_points)
     
             manager.add_character(character)
+            manager.save_to_file("dnd-campaign-manager\data\characters.json")
             print(f"\nCharacter '{name} created successfully!")
             break
         
@@ -110,6 +112,7 @@ def delete_character(manager: CharacterManager) -> None:
         return
     
     deleted_character = manager.remove_character(index -1)
+    manager.save_to_file("dnd-campaign-manager\data\characters.json")
     print(
         f"Character '{deleted_character.name}' has been deleted successfully."
     )
@@ -118,6 +121,8 @@ def delete_character(manager: CharacterManager) -> None:
 def main() -> None:
     """Run the application."""
     manager = CharacterManager()
+    data_file = Path(__file__).parent.parent / "data" / "characters.json"
+    manager.load_from_file("dnd-campaign-manager\data\characters.json")
     
     while True:
         display_menu()

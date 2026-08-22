@@ -47,3 +47,23 @@ class Character:
             f"{self.hit_points} HP"
         )
         
+    
+    def to_dict(self) -> dict:
+        """Convert the character into a dictionary."""
+        return{
+            "name": self.name,
+            "race": self.race,
+            "character_class": self.character_class,
+            "level": self.level,
+            "hit_points": self.hit_points
+        }
+    @classmethod
+    def from_dict(cls, data: dict) -> "Character":
+        """Create a character from a disctionary."""
+        return cls(
+            data["name"],
+            data["race"],
+            data["character_class"],
+            data["level"],
+            data["hit_points"]
+        )
