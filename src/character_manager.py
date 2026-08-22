@@ -1,4 +1,4 @@
-from character import Character
+from src.character import Character
 import json
 from pathlib import Path
 
