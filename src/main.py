@@ -2,10 +2,10 @@
 
 from character import Character
 
-aria = Character("", "Elf", "Wizard", 3, 18)
+aria = Character("Aria", "Elf", "Wizard", 3, 18)
 
-print(aria.name)
-print(aria.race)
-print(aria.character_class)
-print(aria.level)
-print(aria.hit_points)
+print(aria.get_summary())
+aria.take_damage(5)
+print(aria.get_summary())
+aria.heal(3)
+print(aria.get_summary())
