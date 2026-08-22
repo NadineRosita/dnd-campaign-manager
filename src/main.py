@@ -86,6 +86,35 @@ def view_character(manager: CharacterManager) -> None:
     print(f"Level: {character.level}")
     print(f"Hit Points: {character.hit_points}")
 
+def delete_character(manager: CharacterManager) -> None:
+    """Delete a character after confirmation."""
+    characters = manager.get_characters()
+    
+    if not characters:
+        print("\nNo characters have been created yet.")
+        return
+    
+    list_characters(manager)
+    index = get_integer_input("\nChoose a character to delete: ")
+    if index <1 or index > len(characters):
+        print("Invalid character selection.")
+        return
+    
+    character = manager.get_character(index -1)
+    confirmation = input(
+        f"Are you sure you want to delete '{character.name}'? (y/n): "
+    ).strip().lower()
+    
+    if confirmation != "y":
+        print("Deletion cancelled.")
+        return
+    
+    deleted_character = manager.remove_character(index -1)
+    print(
+        f"Character '{deleted_character.name}' has been deleted successfully."
+    )
+    
+
 def main() -> None:
     """Run the application."""
     manager = CharacterManager()
@@ -101,7 +130,7 @@ def main() -> None:
         elif choice == "3":
             view_character(manager)
         elif choice == "4":
-            print("Delete character")
+            delete_character(manager)
         elif choice == "5":
             print("Goodbye!")
             break

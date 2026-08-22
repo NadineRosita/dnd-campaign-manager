@@ -19,3 +19,8 @@ class CharacterManager:
     def get_character(self, index:int) -> Character:
         """Return a character by its index."""
         return self.characters[index]
+    
+    def remove_character(self, index:int) -> Character:
+        """Remove and return a character by its index."""
+        return self.characters.pop(index)
+    
