@@ -2,7 +2,7 @@
 
 from character import Character
 
-aria = Character("Aria", "Elf", "Wizard", 3, 18)
+aria = Character("", "Elf", "Wizard", 3, 18)
 
 print(aria.name)
 print(aria.race)
