@@ -1,7 +1,8 @@
 """Main entry point for the D&D Campaign Manager."""
-
-from character import Character
-from character_manager import CharacterManager
+from character import *
+from character_manager import *
+## from character import Character
+## from character_manager import CharacterManager
 
 
 def display_menu() -> None:
@@ -49,6 +50,19 @@ def get_integer_input(prompt: str) -> int:
             print("Invalid input. Please enter a number.")
 
 
+def list_characters(manager: CharacterManager) -> None:
+    """Display all characters."""
+    print("\n---Characters---")
+    
+    characters = manager.get_characters()
+    
+    if not characters:
+        print("No characters have been created yet.")
+        return
+    
+    for index, character in enumerate(characters, start=1):
+        print(f"{index}.{character.get_summary()}")
+
 
 def main() -> None:
     """Run the application."""
@@ -61,7 +75,7 @@ def main() -> None:
         if choice == "1":
             create_character(manager)
         elif choice == "2":
-            print("List characters")
+            list_characters(manager)
         elif choice == "3":
             print("View character")
         elif choice == "4":
