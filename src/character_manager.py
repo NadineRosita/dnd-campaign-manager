@@ -15,3 +15,7 @@ class CharacterManager:
     def get_characters(self) -> list [Character]:
         """Return all characters."""
         return self.characters
+    
+    def get_character(self, index:int) -> Character:
+        """Return a character by its index."""
+        return self.characters[index]

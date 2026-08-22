@@ -63,6 +63,28 @@ def list_characters(manager: CharacterManager) -> None:
     for index, character in enumerate(characters, start=1):
         print(f"{index}.{character.get_summary()}")
 
+def view_character(manager: CharacterManager) -> None:
+    """Display detailed information about a character."""
+    characters = manager.get_characters()
+    
+    if not characters:
+        print("\nNo characters have been created yet.")
+        return
+    
+    list_characters(manager)
+    index = get_integer_input("\nChoose a character: ")
+    if index < 1 or index > len(characters):
+        print("Invalid character selection.")
+        return
+    
+    character = manager.get_character(index -1)
+    
+    print("\n---Character Details---")
+    print(f"Name: {character.name}")
+    print(f"Race: {character.race}")
+    print(f"Class: {character.character_class}")
+    print(f"Level: {character.level}")
+    print(f"Hit Points: {character.hit_points}")
 
 def main() -> None:
     """Run the application."""
@@ -77,7 +99,7 @@ def main() -> None:
         elif choice == "2":
             list_characters(manager)
         elif choice == "3":
-            print("View character")
+            view_character(manager)
         elif choice == "4":
             print("Delete character")
         elif choice == "5":
