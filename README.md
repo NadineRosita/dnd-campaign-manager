@@ -15,32 +15,50 @@ The project will evolve alongside my learning journey, starting with a simple co
 - Practise Git and GitHub workflows
 - Gradually introduce databases and more advanced features
 
-## 🚧 Project Status
+## 🚧 Features
 
 **Early development**
-This project is currently being designed and developed.
+
+- Create D&D characters
+- List all characters
+- View character details
+- Delete characters
+- Validare user input
+- Handle invalid data safely
+- Save character data to JSON
+- Load saved characters when the application starts
+- Automated tests with pytest
 
 ## 🛠️ Technologies
-- Python
+- Python 3
+- Object-Oriented Programming
+- JSON
+- Pytest
 - Git
 - GitHub
 
-## 🗺️ Roadmap
+## 🗺️ Project Structure
 
-### Version 1.0
-- [] Create and manage characters
-- [] Store character information
-- [] View character details
-- [] Manage campaigns
-- [] Register sessions
-
-### Future versions
-- [] JSON data storage
-- [] SQL database
-- [] Improved command-line interface
-- [] Web interface
-- [] User authentication
-- [] Campaign statistics
+dnd-campaign-manager/
+│
+├── data/
+│   └── characters.json
+│
+├── src/
+│   ├── __init__.py
+│   ├── character.py
+│   ├── character_manager.py
+│   └── main.py
+│
+├── tests/
+│   ├── test_character.py
+│   ├── test_character_manager.py
+│   └── test_persistence.py
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
 
 ## 📚 What I'm learning
 
