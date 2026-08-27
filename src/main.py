@@ -1,6 +1,6 @@
 """Main entry point for the D&D Campaign Manager."""
-from character import *
-from character_manager import *
+from src.character import Character
+from src.character_manager import CharacterManager
 from pathlib import Path
 ## from character import Character
 ## from character_manager import CharacterManager
@@ -20,7 +20,7 @@ def display_menu() -> None:
     print("5. Exit")
     
 
-def create_character(manager: CharacterManager) -> None:
+def create_character(manager: CharacterManager, data_file) -> None:
     """Create a new character from user input."""
     print("\n--- Create Character ---")
     
@@ -35,7 +35,7 @@ def create_character(manager: CharacterManager) -> None:
             character = Character(name, race, character_class, level, hit_points)
     
             manager.add_character(character)
-            manager.save_to_file("dnd-campaign-manager\data\characters.json")
+            manager.save_to_file(str(data_file))
             print(f"\nCharacter '{name} created successfully!")
             break
         
@@ -112,7 +112,7 @@ def delete_character(manager: CharacterManager) -> None:
         return
     
     deleted_character = manager.remove_character(index -1)
-    manager.save_to_file("dnd-campaign-manager\data\characters.json")
+    manager.save_to_file(str(data_file))
     print(
         f"Character '{deleted_character.name}' has been deleted successfully."
     )
@@ -122,14 +122,13 @@ def main() -> None:
     """Run the application."""
     manager = CharacterManager()
     data_file = Path(__file__).parent.parent / "data" / "characters.json"
-    manager.load_from_file("dnd-campaign-manager\data\characters.json")
-    
+    manager.load_from_file(str(data_file))
     while True:
         display_menu()
         
         choice = input("\n Choose an option:")
         if choice == "1":
-            create_character(manager)
+            create_character(manager, data_file)
         elif choice == "2":
             list_characters(manager)
         elif choice == "3":
