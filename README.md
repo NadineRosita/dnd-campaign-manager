@@ -43,6 +43,43 @@ The project will evolve alongside my learning journey, starting with a simple co
 
 ---
 
+## 🗺️ Roadmap
+
+### ✅ Phase 1 — Core functionality
+- [x] Create characters
+- [x] List characters
+- [x] View character details
+- [x] Delete characters
+- [x] Validate user input
+- [x] JSON persistence
+- [x] Automated tests
+
+### 🔄 Phase 2 — Campaign management
+- [ ] Create and manage campaigns
+- [ ] Create and manage sessions
+- [ ] Associate characters with campaigns
+- [ ] Track campaign progress
+
+### 📊 Phase 3 — Data and architecture
+- [ ] Introduce a database
+- [ ] Improve data models
+- [ ] Separate application layers
+- [ ] Improve error handling
+
+### 🖥️ Phase 4 — User experience
+- [ ] Improve the CLI interface
+- [ ] Add command-line arguments
+- [ ] Consider a graphical or web interface
+
+### 🚀 Phase 5 — Advanced features
+- [ ] Character statistics
+- [ ] Inventory management
+- [ ] Session notes
+- [ ] Campaign events
+- [ ] Export campaign data
+
+---
+
 ## 🛠️ Technologies
 
 - Python 3
